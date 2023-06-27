@@ -1,13 +1,15 @@
 import './App.css'
+import ParticlesBackgraund from './components/ParticlesBackgraund/ParticlesBackgraund'
 import Cards from './components/Cards/Cards'
-import SearchBar from './components/SearchBar/SearchBar'
+import Navbar from './components/Navbar/Navbar'
 import characters from './data.js'
 
 function App () {
   return (
     <div className='App'>
-        <SearchBar/>
-        <Cards characters = {characters} />
+      <ParticlesBackgraund/>
+      <Navbar/>
+      <Cards characters = {characters} />
     </div>
   )
 }

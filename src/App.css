@@ -5,10 +5,14 @@
    font-family: sans-serif;
 }
 
+html {
+   height: 100%;
+   overflow: hidden;
+   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
 body {
    display: flex;
    align-items: center;
    justify-content: center;
-   min-height: 100vh;
-   background: rgb(9, 74, 136);
 }
