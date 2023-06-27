@@ -1,32 +1,37 @@
-import { useState } from 'react';
-import './card.css'
-import {ImCross} from 'react-icons/im'
+import { useState } from 'react'
+import { ImCross } from 'react-icons/im'
+import styles from './card.module.css'
 
 const Card = ({ character }) => {
   const [isFlipped, setIsFlipped] = useState(false)
+  const { name, image, status, species, origin, gender } = character
+
   const handleCardClick = () => setIsFlipped(!isFlipped)
-  const {name, image, status, species, origin, gender} = character
+
+  const frontClass = `${styles.face} ${styles.front} ${!isFlipped ? styles.noFlipped : styles.flipped}`
+  const backClass = `${styles.face} ${styles.back} ${isFlipped ? styles.noFlipped : styles.flipped}`
+
   return (
-   <div className='card' onClick={handleCardClick}>
-    <div className={`face front ${!isFlipped ? 'no-' : ''}flipped`}>
-      <ImCross className='btn-close' size={14} />
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
+   <div className={styles.card} onClick={handleCardClick}>
+    <div className={frontClass}>
+      <ImCross className={styles.btnClose} size={14} />
+      <img src={image} alt={name} className={styles.image} />
+      <h3 className={styles.name}>{name}</h3>
     </div>
-    <div className={`face back ${isFlipped ? 'no-' : ''}flipped`}>
+    <div className={backClass}>
       <h3>{name}</h3>
-      <div className='characteristics'>
+      <div className={styles.characteristics}>
         <h5><span>Estado:</span> {status}</h5>
         <h5><span>Especie:</span> {species}</h5>
         <h5><span>Origen:</span> {origin.name}</h5>
         <h5><span>Genero:</span> {gender}</h5>
       </div>
-      <div className='link'>
+      <div className={styles.link}>
           <a href="#">Ver mas</a>
       </div>
     </div>
-  </div> 
-  );
-};
+  </div>
+  )
+}
 
 export default Card

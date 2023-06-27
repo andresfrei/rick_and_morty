@@ -9,4 +9,6 @@ const Logo = () => {
   )
 }
 
+// <p className={styles.creator}>by andresfrei-PT14a</p>
+
 export default Logo

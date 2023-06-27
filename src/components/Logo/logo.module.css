@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
 .container {
   display: flex;
   padding-top: 10px;
@@ -8,4 +10,13 @@
 .logo {
   height: 50px;
   width: auto;
+}
+
+.creator {
+  position: absolute;
+  color: white;
+  margin-top: 75px;
+  font-size: 14px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 100;
 }

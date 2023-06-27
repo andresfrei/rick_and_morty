@@ -583,7 +583,7 @@
     },
     "rate": {
       "quantity": 1,
-      "delay": 7
+      "delay": 20
     },
     "shape": "square",
     "startCount": 0,
@@ -604,10 +604,10 @@
         }
       },
       "size": {
-        "value": 40
+        "value": 100
       },
       "move": {
-        "speed": 10,
+        "speed": 7,
         "outModes": {
           "default": "none",
           "right": "destroy"
