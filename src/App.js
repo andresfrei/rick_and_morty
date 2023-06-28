@@ -2,16 +2,16 @@ import './App.css'
 import ParticlesBackgraund from './components/ParticlesBackgraund/ParticlesBackgraund'
 import Cards from './components/Cards/Cards'
 import Navbar from './components/Navbar/Navbar'
-import characters from './data.js'
+import useCharacters from './hooks/useCharacters'
 
 function App () {
+  const { showCharacters, handleSearch } = useCharacters()
   return (
     <div className='App'>
       <ParticlesBackgraund/>
-      <Navbar/>
-      <Cards characters = {characters} />
+      <Navbar handleSearch={handleSearch}/>
+      <Cards characters = {showCharacters} />
     </div>
   )
 }
-// <SearchBar onSearch={(characterID) => window.alert(characterID)} />
 export default App

@@ -2,12 +2,12 @@ import Logo from '../Logo/Logo'
 import SearchBar from '../SearchBar/SearchBar'
 import styles from './navbar.module.css'
 
-const Navbar = () => {
+const Navbar = ({ handleSearch }) => {
   return (
-    <nav className={styles.navbar} >
+    <nav >
       <div className={styles.container}>
         <Logo/>
-        <SearchBar/>
+        <SearchBar handleSearch={handleSearch}/>
       </div>
     </nav>
   )
