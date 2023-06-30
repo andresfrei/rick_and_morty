@@ -10,7 +10,8 @@ const useDictionary = () => {
 
   const dictionaryWord = (key) => {
     const keys = key.split('.')
-    return dictionary[keys[0]][keys[1]]
+    if (!dictionary[keys[0]]) return '<undefined>'
+    return dictionary[keys[0]][keys[1]] || '<undefined>'
   }
 
   useEffect(() => {

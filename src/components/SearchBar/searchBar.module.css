@@ -1,14 +1,19 @@
 .container {
-  max-height: 50px;
   width: 100%;
   max-width: 380px;
+  max-height: 50px;
   margin: 5px auto;
   background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
   border-radius: 60px;
   padding: 20px 20px;
+  display: flex;
+  align-items: center;
 }
+
+.container:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 
 .input {
   background: transparent;

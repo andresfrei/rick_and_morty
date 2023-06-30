@@ -6,8 +6,10 @@ const dictionary = {
     searchBarPlaceholder: 'Search by name',
     selectedLanguage: 'Selected language'
   },
-  cars: {
-    title: 'My collection'
+  cards: {
+    title: 'My collection',
+    add: 'Add',
+    filter: 'Filter'
   },
   card: {
     name: 'Name:',
@@ -15,7 +17,7 @@ const dictionary = {
     species: 'Species:',
     gender: 'Gender:',
     origin: 'Origin:',
-    seeMore: 'See more...'
+    seeMore: 'See more'
   }
 }
 

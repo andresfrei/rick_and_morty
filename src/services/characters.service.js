@@ -1,8 +1,11 @@
-import axios from 'axios'
-
+// import axios from 'axios'
+import mock from '../mocks/data'
 const urlBase = 'https://rickandmortyapi.com/api'
 
-export const getCharactersByIDs = async (ids) => {
-  const res = await axios.get(`${urlBase}/character/${ids}`)
-  return res.data
+export const getCharactersByIDs = async (filter) => {
+  const url = `${urlBase}/character/${filter}`
+  console.log(url)
+  // const res = await fetch(url)
+  // const { data } = res
+  return mock
 }

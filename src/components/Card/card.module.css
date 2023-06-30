@@ -58,6 +58,10 @@
   cursor: pointer;
 }
 
+.like {
+  color: red;
+}
+
 .btnClose:hover {
   background: rgba(250, 0, 0, .7);
 }
@@ -95,16 +99,11 @@
   padding: 20px;
 }
 
-.link {
-  border-top: solid 1px #f3f3f3;
-  height: 30px;
-  line-height: 30px;
-  padding-top: 10px;
-}
-
-.link a {
-  color: #f3f3f3;
-  text-decoration: none;
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
 }
 
 .link a:hover {
@@ -142,5 +141,9 @@
 
 .no-flipped {
   transform: perspective(600px) rotateY(0deg);
+}
+
+.displayNone {
+  display: none;
 }
 

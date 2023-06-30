@@ -1,15 +1,20 @@
 import Logo from '../Logo/Logo'
-import SearchBar from '../SearchBar/SearchBar'
 import styles from './navbar.module.css'
 import LenguageSelector from '../LenguageSelector/LenguageSelector'
+import { NavigationButton } from '../_theme/Buttons'
+import { FaUserAlt } from 'react-icons/fa'
 
-const Navbar = ({ handleSearch, dictionary }) => {
+const Navbar = ({ dictionary }) => {
   return (
     <nav >
       <div className={styles.container}>
         <Logo/>
-        <SearchBar handleSearch={handleSearch} dictionary = {dictionary}/>
-        <LenguageSelector dictionary = {dictionary}/>
+        <div className={styles.toolBar}>
+          <LenguageSelector dictionary = {dictionary}/>
+          <NavigationButton width='50px'>
+            <FaUserAlt/>
+          </NavigationButton>
+        </div>
       </div>
     </nav>
   )

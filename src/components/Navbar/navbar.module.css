@@ -1,9 +1,14 @@
 .container {
-  height: 80px;
+  height: 60px;
   max-width: 1200px;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  margin-top: .5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.toolBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

@@ -11,8 +11,12 @@ function App () {
   return (
     <div className='App'>
       <ParticlesBackgraund/>
-      <Navbar handleSearch={handleSearch} dictionary= {dictionary} />
-      <Cards characters = {showCharacters} dictionary= {dictionary}/>
+      <Navbar dictionary= {dictionary} />
+      <Cards
+        characters = {showCharacters}
+        dictionary= {dictionary}
+        handleSearch={handleSearch}
+      />
     </div>
   )
 }
