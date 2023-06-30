@@ -1,4 +1,4 @@
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBar from './SearchBar'
 import { NavigationButton } from '../_theme/Buttons'
 import styles from './cards.module.css'
 

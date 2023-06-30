@@ -1,6 +1,6 @@
 import Logo from '../Logo/Logo'
 import styles from './navbar.module.css'
-import LenguageSelector from '../LenguageSelector/LenguageSelector'
+import LenguageSelector from './LenguageSelector'
 import { NavigationButton } from '../_theme/Buttons'
 import { FaUserAlt } from 'react-icons/fa'
 import { BsGithub } from 'react-icons/bs'

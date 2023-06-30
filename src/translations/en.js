@@ -3,13 +3,13 @@ const dictionary = {
     title: 'Rick and Morty - Integrating project'
   },
   nav: {
-    searchBarPlaceholder: 'Search by name',
     selectedLanguage: 'Selected language'
   },
   cards: {
     title: 'My collection',
     add: 'Add',
-    filter: 'Filter'
+    filter: 'Filter',
+    search: 'Search in coleccion'
   },
   card: {
     name: 'Name:',

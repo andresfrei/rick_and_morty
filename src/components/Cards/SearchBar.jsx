@@ -16,7 +16,7 @@ export default function SearchBar ({ handleSearch, dictionary }) {
         <IoIosSearch className={styles.icon}/>
          <input
           type='search'
-          placeholder={dictionaryWord('nav.searchBarPlaceholder')}
+          placeholder={dictionaryWord('cards.search')}
           className={styles.input}
           onChange={handleInputChange}
           value={input}

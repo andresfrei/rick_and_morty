@@ -3,13 +3,13 @@ const dictionary = {
     title: 'Rick and Morty - Projecto integrador'
   },
   nav: {
-    searchBarPlaceholder: 'Buscar por nombre',
     selectedLanguage: 'idioma seleccionado'
   },
   cards: {
     title: 'Mi colección',
     add: 'Agregar',
-    filter: 'Filtrar'
+    filter: 'Filtrar',
+    search: 'Buscar en colección'
   },
   card: {
     name: 'Nombre:',

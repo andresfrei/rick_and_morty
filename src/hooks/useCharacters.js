@@ -14,7 +14,13 @@ const useCharacters = () => {
 
   const handleFilter = () => !search
     ? characters
-    : characters.filter(character => character.name.toLowerCase().includes(search))
+    : characters.filter(character =>
+      character.name.toLowerCase().includes(search) ||
+      character.gender.toLowerCase().includes(search) ||
+      character.origin.name.toLowerCase().includes(search) ||
+      character.species.toLowerCase().includes(search) ||
+      character.status.toLowerCase().includes(search)
+    )
 
   const showCharacters = handleFilter()
 
