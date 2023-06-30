@@ -2,7 +2,8 @@ import { useState } from 'react'
 import styles from './searchBar.module.css'
 import { IoIosSearch } from 'react-icons/io'
 
-export default function SearchBar ({ handleSearch }) {
+export default function SearchBar ({ handleSearch, dictionary }) {
+  const { dictionaryWord } = dictionary
   const [input, setInput] = useState()
   const handleInputChange = (event) => {
     const { value } = event.target
@@ -15,7 +16,7 @@ export default function SearchBar ({ handleSearch }) {
         <IoIosSearch className={styles.icon}/>
          <input
           type='search'
-          placeholder='Search by name'
+          placeholder={dictionaryWord('nav.searchBarPlaceholder')}
           className={styles.input}
           onChange={handleInputChange}
           value={input}

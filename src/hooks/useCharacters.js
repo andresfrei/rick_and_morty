@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import { getCharacters } from '../services/apiService'
+import { getCharactersByIDs } from '../services/characters.service'
 
 const useCharacters = () => {
   const [characters, setCharacters] = useState([])
   const [search, setSearch] = useState(null)
 
   const getItems = async () => {
-    const filter = '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15'
-    const data = await getCharacters(filter)
+    const ids = '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15'
+    const data = await getCharactersByIDs(ids)
     setCharacters(data)
   }
   const handleSearch = (value) => value?.length > 2
@@ -20,7 +20,9 @@ const useCharacters = () => {
 
   const showCharacters = handleFilter()
 
-  useEffect(getItems, [])
+  // const handleDelte = (id) => {}
+
+  useEffect(() => getItems, [])
 
   return { characters, showCharacters, handleSearch }
 }
