@@ -22,7 +22,6 @@ const useCharacters = () => {
 
   useEffect(async () => {
     const data = await getCharactersByIDs(filter)
-    console.log(data)
     setCharacters(data)
   }, [])
 

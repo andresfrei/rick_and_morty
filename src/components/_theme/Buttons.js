@@ -20,7 +20,7 @@ export const NavigationButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${props => props.width || '200px'};
+  width: ${props => props.width || '150px'};
   height: 50px;
   border-radius: 60px;
   background: rgba(255, 255, 255, 0.2);
