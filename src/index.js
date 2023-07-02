@@ -1,10 +1,20 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import ParticlesBackgraund from './components/ParticlesBackgraund/ParticlesBackgraund'
 import './index.css'
-import App from './App'
+import router from './router'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+// Redux
+import { Provider } from 'react-redux'
+import store from './store'
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+  <React.StrictMode>
+    <ParticlesBackgraund/>
+    <Provider store={store}>
+      <RouterProvider router={router}/>
+    </Provider>
+  </React.StrictMode>
 )

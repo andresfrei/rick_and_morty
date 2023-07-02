@@ -2,16 +2,18 @@ import styles from './cards.module.css'
 import Card from '../Card/Card'
 import CardsHeader from './CardsHeader'
 
-export default function Cards ({ characters, dictionary, handleSearch }) {
+import useCharacters from '../../hooks/useCharacters'
+
+export default function Cards () {
+  const { showCharacters } = useCharacters()
   return (
     <div className={styles.container}>
-      <CardsHeader handleSearch={handleSearch} dictionary={dictionary}/>
+      <CardsHeader/>
       <div className={styles.cardsGalery}>
-         {characters.map(character => (
+         {showCharacters.map(character => (
           <Card
             key = {character.id}
             character = {character}
-            dictionary= {dictionary}
           />
          )) }
       </div>

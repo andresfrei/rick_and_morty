@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import styles from './searchBar.module.css'
 import { IoIosSearch } from 'react-icons/io'
+import useLanguage from '../../hooks/useLanguage'
+import useCharacters from '../../hooks/useCharacters'
 
-export default function SearchBar ({ handleSearch, dictionary }) {
-  const { dictionaryWord } = dictionary
+export default function SearchBar () {
+  const { dictionaryWord } = useLanguage()
+  const { handleSearch } = useCharacters()
   const [input, setInput] = useState()
   const handleInputChange = (event) => {
     const { value } = event.target

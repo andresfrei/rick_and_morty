@@ -1,16 +1,14 @@
-import { useEffect, useState } from 'react'
-import { getCharactersByIDs } from '../services/characters.service'
-
-const initialFilter = '[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]'
+// import { getCharactersByIDs } from '../services/characters.service'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSearch } from '../reducers/collectionSlice'
 
 const useCharacters = () => {
-  const [characters, setCharacters] = useState([])
-  const [search, setSearch] = useState(null)
-  const [filter, setFilter] = useState(initialFilter)
+  const { characters, search } = useSelector(state => state.collection)
+  const dispatch = useDispatch()
 
   const handleSearch = (value) => value?.length > 2
-    ? setSearch(value.toLowerCase())
-    : setSearch(null)
+    ? dispatch(setSearch(value.toLowerCase()))
+    : dispatch(setSearch(null))
 
   const handleFilter = () => !search
     ? characters
@@ -23,13 +21,6 @@ const useCharacters = () => {
     )
 
   const showCharacters = handleFilter()
-
-  // const handleDelte = (id) => {}
-
-  useEffect(async () => {
-    const data = await getCharactersByIDs(filter)
-    setCharacters(data)
-  }, [])
 
   return { characters, showCharacters, handleSearch }
 }

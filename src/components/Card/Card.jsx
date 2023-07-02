@@ -3,18 +3,24 @@ import { useState } from 'react'
 import { ImCross } from 'react-icons/im'
 import { AiFillHeart } from 'react-icons/ai'
 import { OutlineButton } from '../_theme/Buttons'
+import Property from './Property'
+import useLanguage from '../../hooks/useLanguage'
+import { colorPrimary, colorSecundary } from '../../config/colors'
 
-const BACK_COLOR = '#032336'
+const Card = ({ character }) => {
+  const { name, image, status, species, origin, gender } = character
 
-const Card = ({ character, dictionary }) => {
   const [isFlipped, setIsFlipped] = useState(false)
   const [like, setLike] = useState(false)
-  const { name, image, status, species, origin, gender } = character
-  const { dictionaryWord } = dictionary
+
+  const { dictionaryWord } = useLanguage()
+
   const frontClass = `${styles.face} ${styles.front} ${!isFlipped ? styles.noFlipped : styles.flipped}`
   const backClass = `${styles.face} ${styles.back} ${isFlipped ? styles.noFlipped : styles.flipped}`
   const btnLikeClass = `${styles.btnLike} ${like ? styles.like : ''}`
+
   const handleCardClick = () => setIsFlipped(!isFlipped)
+
   const handleClose = (event) => {
     event.stopPropagation()
     window.alert('Close click')
@@ -38,26 +44,14 @@ const Card = ({ character, dictionary }) => {
     </div>
     <div className={backClass}>
       <h3>{name}</h3>
-      <div className={styles.characteristics}>
-        <div className={styles.propLine}>
-          <h5 className={styles.propLabel}>{dictionaryWord('card.status')}</h5>
-          <h5 className={styles.propValue}>{status}</h5>
-        </div>
-        <div className={styles.propLine}>
-          <h5 className={styles.propLabel}>{dictionaryWord('card.species')}</h5>
-          <h5 className={styles.propValue}>{species}</h5>
-        </div>
-        <div className={styles.propLine}>
-          <h5 className={styles.propLabel}>{dictionaryWord('card.origin')}</h5>
-          <h5 className={styles.propValue}>{origin.name}</h5>
-        </div>
-        <div className={styles.propLine}>
-          <h5 className={styles.propLabel}>{dictionaryWord('card.gender')}</h5>
-          <h5 className={styles.propValue}>{gender}</h5>
-        </div>
+      <div className={styles.body}>
+        <Property label = {dictionaryWord('card.status')} value = { status } />
+        <Property label = {dictionaryWord('card.species')} value = { species } />
+        <Property label = {dictionaryWord('card.origin')} value = { origin.name } />
+        <Property label = {dictionaryWord('card.gender')} value = { gender } />
       </div>
       <div className={styles.footer}>
-          <OutlineButton color="white" background={BACK_COLOR} onClick={handleMore} >
+          <OutlineButton color={colorPrimary} background={colorSecundary} onClick={handleMore} >
             {dictionaryWord('card.seeMore')}
           </OutlineButton>
       </div>

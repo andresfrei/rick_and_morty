@@ -2,25 +2,26 @@ import { useState } from 'react'
 import OptionFlag from './OptionFlag'
 import styles from './lenguageSelector.module.css'
 import { FaAngleDown } from 'react-icons/fa'
+import useLanguage from '../../hooks/useLanguage'
 
-const LanguageSelector = ({ dictionary }) => {
+const LanguageSelector = () => {
   const [toggle, setToggle] = useState(false)
-  const { selectedLanguage, setSelectedLanguage } = dictionary
+  const { selected } = useLanguage()
   const handleClick = () => setToggle(!toggle)
   const toggleClass = toggle ? styles.options : styles.displayNone
   return (
     <div className={styles.container}>
       <div className={styles.selectbox} onClick={handleClick}>
           <div className={styles.selected}>
-              <OptionFlag language={selectedLanguage}/>
+              <OptionFlag language={selected}/>
               <FaAngleDown/>
           </div>
           <div className={toggleClass}>
             <div className={styles.optionContainer}>
-              <OptionFlag language={'es'} setSelectedLanguage = {setSelectedLanguage}/>
+              <OptionFlag language={'es'} />
             </div>
             <div className={styles.optionContainer}>
-              <OptionFlag language={'en'} setSelectedLanguage = {setSelectedLanguage}/>
+              <OptionFlag language={'en'} />
             </div>
           </div>
       </div>

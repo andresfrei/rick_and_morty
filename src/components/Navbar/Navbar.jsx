@@ -7,14 +7,14 @@ import { BsGithub } from 'react-icons/bs'
 
 const GITHUB_REPO_URL = 'https://github.com/andresfrei/rick_and_morty'
 
-const Navbar = ({ dictionary }) => {
+const Navbar = () => {
   const handleGitHub = () => window.open(GITHUB_REPO_URL, '_blank')
   return (
     <nav >
       <div className={styles.container}>
         <Logo/>
         <div className={styles.toolBar}>
-          <LenguageSelector dictionary = {dictionary}/>
+          <LenguageSelector />
           <NavigationButton width='50px' onClick={handleGitHub}>
             <BsGithub/>
           </NavigationButton>

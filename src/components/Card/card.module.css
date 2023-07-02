@@ -42,6 +42,10 @@
   cursor: pointer;
 }
 
+.btnClose:hover {
+  background: rgba(250, 0, 0, .7);
+}
+
 .btnLike {
   position: absolute;
   z-index: 99;
@@ -60,10 +64,6 @@
 
 .like {
   color: red;
-}
-
-.btnClose:hover {
-  background: rgba(250, 0, 0, .7);
 }
 
 .image {
@@ -110,7 +110,7 @@
   text-decoration: underline;
 }
 
-.characteristics{
+.body{
   display: flex;
   flex-direction: column;
   gap: 9px;
