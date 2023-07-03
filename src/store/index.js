@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import userReducer from '../reducers/userSlice'
+import sessionReducer from '../reducers/sessionSlice'
 import collectionReducer from '../reducers/collectionSlice'
 import languageReducer from '../reducers/languageSlice'
+import loaderReducer from '../reducers/loaderSlice'
 
 export default configureStore({
   reducer: {
-    user: userReducer,
+    session: sessionReducer,
     collection: collectionReducer,
-    language: languageReducer
+    language: languageReducer,
+    loader: loaderReducer
   }
 })

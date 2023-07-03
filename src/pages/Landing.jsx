@@ -1,6 +1,8 @@
+import Welcome from '../components/Welcome/Welcome'
+
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <Welcome/>
   )
 }
 

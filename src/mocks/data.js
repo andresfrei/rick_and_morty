@@ -60,3 +60,10 @@ export default [
     image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg'
   }
 ]
+
+export const sessionMock = {
+  id: 1,
+  email: 'user@gmail.com',
+  fullName: 'Cosme Fulanito',
+  password: '12345'
+}

@@ -1,10 +1,10 @@
 .container {
   height: 60px;
-  max-width: 1200px;
-  margin-top: .5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .toolBar {

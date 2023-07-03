@@ -1,6 +1,8 @@
 const dictionary = {
-  head: {
-    title: 'Rick and Morty - Integrating project'
+  welcome: {
+    title: 'Welcome to Rick and Morty',
+    subTitle: 'Integrating project Henry',
+    autor: 'By Andrés Frei - PT14A'
   },
   nav: {
     selectedLanguage: 'Selected language'
@@ -18,6 +20,17 @@ const dictionary = {
     gender: 'Gender:',
     origin: 'Origin:',
     seeMore: 'See more'
+  },
+  login: {
+    title: 'Login',
+    email: 'Email',
+    emailBack: 'Input you email',
+    password: 'Password',
+    passwordBack: 'Input you password',
+    forgot: 'I forgot my password',
+    register: 'Register',
+    login: 'Login',
+    unauthorized: 'You didn\'t say the magic words'
   }
 }
 

@@ -11,10 +11,9 @@ html {
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color : white;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .error_container {
@@ -33,4 +32,30 @@ body {
 .error_container h3 {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: progress
+}
+
+.cursor-default {
+  cursor: default;
 }
