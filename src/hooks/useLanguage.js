@@ -5,7 +5,7 @@ import en from '../translations/en'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSelected, setDictionary } from '../reducers/languageSlice'
 
-const useLanguage = () => {
+export default function useLanguage () {
   const { selected, dictionary } = useSelector(state => state.language)
   const dispatch = useDispatch()
 
@@ -30,4 +30,3 @@ const useLanguage = () => {
 
   return { selected, setLanguage, dictionaryWord }
 }
-export default useLanguage

@@ -1,23 +1,27 @@
-import styles from './formLogin.module.css'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+
 import useSession from '../../hooks/useSession'
-import { useEffect, useRef, useState } from 'react'
-import { Form, FormHeader, FormFooter, FormInput, FromLabel, FormGrup, InputGrup } from '../_theme/Forms'
-import { OutlineButton } from '../_theme/Buttons'
 import useLanguage from '../../hooks/useLanguage'
-import { colorSecundary } from '../../config/colors'
+import useToggle from '../../hooks/useToggle'
+
 import ErrorModal from '../ErrorModal/ErrorModal'
 
-const FormLogin = () => {
-  const [showModal, setShowModal] = useState(false)
-  const [passport, setPassport] = useState({ email: '', password: '' })
+import { OutlineButton } from '../_theme/Buttons'
+import { Form, FormHeader, FormFooter, FormGrup, InputGrup } from '../_theme/Forms'
+import styles from './formLogin.module.css'
 
+export default function FormLogin () {
+  const { handleToggle, isToggle } = useToggle()
+  const [passport, setPassport] = useState({ email: '', password: '' })
+  const navigate = useNavigate()
   const { login } = useSession()
   const { dictionaryWord } = useLanguage()
-  const inputRef = useRef(null)
 
-  useEffect(() => {
+  //  const inputRef = useRef(null)
+  /* useEffect(() => {
     inputRef.current.focus()
-  }, [])
+  }, []) */
 
   const handleChange = (event) => {
     const property = event.target.name
@@ -27,45 +31,53 @@ const FormLogin = () => {
 
   const handleLogin = () => {
     const res = login(passport)
-    setShowModal(!res)
+    !res
+      ? handleToggle(4)
+      : navigate('/home')
   }
   const handleRegister = () => {
     window.alert('No soy tan veloz... Prueba usr: user@gmail.com, pwd: 12345')
-    inputRef.current.focus()
+    // inputRef.current.focus()
   }
   const closeModal = () => {
-    setShowModal(false)
-    inputRef.current.focus()
+    handleToggle(4)
+    // inputRef.current.focus()
   }
   const handleForgot = () => window.alert('Por ahora a joderse')
 
   return (
     <>
-      {showModal && <ErrorModal handleClick={closeModal}/>}
+      {isToggle() && <ErrorModal handleClick={closeModal}/>}
       <div className={styles.container}>
         <Form className={styles.body}>
           <FormHeader>
             <h2>{dictionaryWord('login.title')}</h2>
           </FormHeader>
-            <FormGrup>
-              <FromLabel>{dictionaryWord('login.email')}</FromLabel>
-              <FormInput type='email' placeholder={dictionaryWord('login.emailBack')} ref={inputRef}/>
-            </FormGrup>
-          <FormGrup>
-            <FromLabel>{dictionaryWord('login.password')}</FromLabel>
-            <FormInput type='password' placeholder={dictionaryWord('login.passwordBack')}/>
-          </FormGrup>
+          <InputGrup
+            name='email'
+            type='email'
+            label={dictionaryWord('login.email')}
+            placeholder={dictionaryWord('login.emailBack')}
+            onChange = {handleChange}
+          />
+          <InputGrup
+            name='password'
+            type='password'
+            label={dictionaryWord('login.password')}
+            placeholder={dictionaryWord('login.passwordBack')}
+            onChange = {handleChange}
+          />
           <FormFooter>
             <FormGrup>
-              <OutlineButton color = '#fff' background = {colorSecundary} onClick={handleLogin}>
+              <OutlineButton onClick={handleLogin}>
                 {dictionaryWord('login.login')}
               </OutlineButton>
             </FormGrup>
             <FormGrup>
-              <OutlineButton color = '#fff' background = {colorSecundary} onClick={handleForgot}>
-                {dictionaryWord('login.forgot')}
+              <OutlineButton onClick={handleForgot}>
+              {dictionaryWord('login.forgot')}
               </OutlineButton>
-              <OutlineButton color = '#fff' background = {colorSecundary} onClick={handleRegister}>
+              <OutlineButton onClick={handleRegister}>
                 {dictionaryWord('login.register')}
               </OutlineButton>
             </FormGrup>
@@ -75,5 +87,3 @@ const FormLogin = () => {
   </>
   )
 }
-
-export default FormLogin

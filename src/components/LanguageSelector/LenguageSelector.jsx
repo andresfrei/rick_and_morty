@@ -1,14 +1,13 @@
-import { useState } from 'react'
 import OptionFlag from './OptionFlag'
 import styles from './lenguageSelector.module.css'
 import { FaAngleDown } from 'react-icons/fa'
 import useLanguage from '../../hooks/useLanguage'
+import useToggle from '../../hooks/useToggle'
 
 const LanguageSelector = () => {
-  const [toggle, setToggle] = useState(false)
+  const { isToggle, handleToggle } = useToggle()
   const { selected } = useLanguage()
-  const handleClick = () => setToggle(!toggle)
-  const toggleClass = toggle ? styles.options : styles.displayNone
+  const handleClick = () => handleToggle(1)
   return (
     <div className={styles.container}>
       <div className={styles.selectbox} onClick={handleClick}>
@@ -16,14 +15,16 @@ const LanguageSelector = () => {
               <OptionFlag language={selected}/>
               <FaAngleDown/>
           </div>
-          <div className={toggleClass}>
-            <div className={styles.optionContainer}>
-              <OptionFlag language={'es'} />
+          { isToggle(1) &&
+            <div className={styles.options}>
+              <div className={styles.optionContainer}>
+                <OptionFlag language={'es'} />
+              </div>
+              <div className={styles.optionContainer}>
+                <OptionFlag language={'en'} />
+              </div>
             </div>
-            <div className={styles.optionContainer}>
-              <OptionFlag language={'en'} />
-            </div>
-          </div>
+          }
       </div>
     </div>
   )

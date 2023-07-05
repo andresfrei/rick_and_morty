@@ -6,11 +6,9 @@ import Home from '../pages/Home'
 import About from '../pages/About'
 import Detail from '../pages/Detail'
 import Error from '../pages/Error'
-import Login from '../pages/Login'
 import Landing from '../pages/Landing'
 
 const router = createBrowserRouter([
-  { path: '/login', element: <Login/> },
   { path: '/about', element: <About/> },
   {
     path: '/',

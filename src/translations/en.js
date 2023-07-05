@@ -31,6 +31,16 @@ const dictionary = {
     register: 'Register',
     login: 'Login',
     unauthorized: 'You didn\'t say the magic words'
+  },
+  session: {
+    options: 'Config',
+    close: 'Close'
+  },
+  errors: {
+    dataExist: 'The entered data already exists',
+    outRange: 'Number out renge',
+    noNumber: 'The data must be a number',
+    feching: 'Error when looking for the api'
   }
 }
 

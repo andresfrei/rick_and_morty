@@ -31,6 +31,16 @@ const dictionary = {
     forgot: 'Olvide mi contraseña',
     register: 'Registrarse',
     unauthorized: 'No dijistes las palabras mágicas'
+  },
+  session: {
+    options: 'Configurar',
+    close: 'Cerrar'
+  },
+  errors: {
+    dataExist: 'El dato ingresado ya existe',
+    outRange: 'Fuera de rango',
+    noNumber: 'El dato debe ser un número',
+    feching: 'Error al buscar en la API'
   }
 }
 

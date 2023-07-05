@@ -1,0 +1,14 @@
+[
+  {
+    "id":1,
+    "email":"user@gmail.com",
+    "fullName":"Cosme fulatino",
+    "password":"12345"
+  },
+  {
+    "id":2,
+    "email":"andresfrei@gmail.com",
+    "fullName":"Andrés Frei",
+    "password":"112233"
+  }
+]

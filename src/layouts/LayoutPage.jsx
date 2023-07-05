@@ -1,15 +1,16 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar/Navbar'
+import useError from '../hooks/useError'
+import ErrorBox from '../components/ErrorBox.js/ErrorBox'
 
-const Layout = () => {
+export default function Layout () {
+  const { hasError } = useError()
   return (
-    <>
-      <main >
-        <Navbar/>
-        <Outlet/>
-      </main>
-    </>
+    <main className='page-container'>
+      <Navbar/>
+      <Outlet/>
+      {hasError && <ErrorBox/>}
+    </main>
+
   )
 }
-
-export default Layout

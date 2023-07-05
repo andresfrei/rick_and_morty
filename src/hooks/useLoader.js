@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setLoader } from '../reducers/loaderSlice'
+import { setLoader } from '../reducers/systemSlice'
 
-const useLoader = () => {
-  const { loader } = useSelector(state => state.loader)
+export default function useLoader () {
+  const { loader } = useSelector(state => state.system)
   const dispatch = useDispatch()
 
   const loaderTrue = () => dispatch(setLoader(true))
@@ -10,4 +10,3 @@ const useLoader = () => {
 
   return { loader, loaderTrue, loaderfalse }
 }
-export default useLoader

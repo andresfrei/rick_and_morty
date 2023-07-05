@@ -1,7 +1,11 @@
-import Cards from '../components/Cards/Cards'
+import Collection from '../components/Collection/Collection'
+import CollectionBar from '../components/CollectionBar/CollectionBar'
 const Home = () => {
   return (
-      <Cards/>
+    <div className='flex-column'>
+      <CollectionBar/>
+      <Collection/>
+    </div>
   )
 }
 

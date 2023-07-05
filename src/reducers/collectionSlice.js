@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import inicialData from '../mocks/data'
 import { categories } from '../config/inicialState'
 
 const initialState = {
-  characters: inicialData,
+  characters: [],
   categories,
   filter: [],
   search: '',
@@ -15,10 +14,12 @@ const collectionSlice = createSlice({
   initialState,
   reducers: {
     addCharacter: (state, action) => {
-      state.characters = [...state.characters, action.payload]
+      const characters = [...state.characters, action.payload]
+      state.characters = characters
     },
     setSearch: (state, action) => {
-      state.search = action.payload
+      const search = action.payload
+      state.search = search
     }
   }
 })

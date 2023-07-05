@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  user: {},
-  status: 0 // 0 -> No loggin | 1 -> ErrorLoggin | 2 -> loggin
+  email: '',
+  name: '',
+  token: null
 }
 
 const sessionSlice = createSlice({
@@ -10,13 +11,16 @@ const sessionSlice = createSlice({
   initialState,
   reducers: {
     setSession: (state, action) => {
-      state = { user: action.payload, status: 2 }
+      const { email } = action.payload
+      state.email = email
+      state.name = 'Cosme Fulanito'
+      state.token = '121234sddff'
     },
     unsetSession: (state) => {
-      state = { user: {}, status: 0 }
+      state = initialState
     },
     notAuthorized: (state) => {
-      state = { user: {}, status: 1 }
+      state = initialState
     }
   }
 })

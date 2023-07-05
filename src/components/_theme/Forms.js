@@ -46,8 +46,8 @@ export const FormGrup = styled.div`
 
 export const FormInput = styled.input`
   background: rgba(255,255,255,0.2);
-  width:65%;
-  text-align:left;
+  width:${props => props.width};
+  text-align:${props => props.textAlign || 'left'};
   height: 40px;
   border-radius: 12px;
   border: none;
@@ -69,11 +69,20 @@ export const FromLabel = styled.label`
   text-align:left;
 `
 
-/* export const InputGrup = ({ type, label, placeholder, ref }) => {
+export const InputGrup = ({ type, name, label, placeholder, onChange, textAlign, onKeyPress, ref }) => {
   return (
     <FormGrup >
-      <FromLabel>{label}</FromLabel>
-      <FormInput type={type} placeholder={placeholder} ref={ref}/>
+      {!!label && <FromLabel htmlFor={name}>{label}</FromLabel>}
+      <FormInput
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        textAlign={textAlign}
+        onChange={onChange}
+        width={!label ? '100%' : '65%'}
+        onKeyPress={onKeyPress}
+        ref={ref || null}
+      />
     </FormGrup>
   )
-} */
+}

@@ -7,7 +7,7 @@ import Property from './Property'
 import useLanguage from '../../hooks/useLanguage'
 import { colorPrimary, colorSecundary } from '../../config/colors'
 
-const Card = ({ character }) => {
+export default function Card ({ character }) {
   const { name, image, status, species, origin, gender } = character
 
   const [isFlipped, setIsFlipped] = useState(false)
@@ -59,7 +59,3 @@ const Card = ({ character }) => {
   </div>
   )
 }
-
-export default Card
-
-// <button onClick={handleMore}>{dictionaryWord('card.seeMore')}</button>
