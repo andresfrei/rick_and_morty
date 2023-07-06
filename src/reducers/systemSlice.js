@@ -15,10 +15,10 @@ const systemSlice = createSlice({
     },
     setToggle: (state, action) => {
       state.toggleId = action.payload
+    },
+    setError: (state, action) => {
+      state.error = action.payload
     }
-  },
-  setError: (state, action) => {
-    state.error = action.payload
   }
 })
 

@@ -36,8 +36,9 @@ body {
   margin-bottom: 1rem;
 }
 
-.page-container {
+.layout-container {
   display: flex;
+  max-width: 1200px;
   flex-direction: column;
   height: 100vh
 }
@@ -57,6 +58,10 @@ body {
   align-items: center;
   flex-grow: 1;
   gap: 10px;
+}
+
+.page-margin-top{
+  margin-top: 1.5rem;
 }
 
 
@@ -79,4 +84,51 @@ body {
 
 .cursor-default {
   cursor: default;
+}
+
+.cursor-pointer:hover{
+  cursor: pointer;
+}
+
+/* Transition */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 700ms;
+}
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

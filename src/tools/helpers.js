@@ -4,3 +4,8 @@ export const randomGenerete = (min, max) => {
   const rounded = Math.floor(random)
   return min + rounded
 }
+
+export const isNumber = (value) => {
+  const res = !isNaN(value)
+  return res
+}

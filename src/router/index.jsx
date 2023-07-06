@@ -8,13 +8,13 @@ import Detail from '../pages/Detail'
 import Landing from '../pages/Landing'
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 
-import Error from '../pages/Error'
+import Error from '../components/Error/Error'
 
 const router = createBrowserRouter([
-
   {
     path: '/',
     element: <LayoutPage/>,
+    errorElement: <Error/>,
     children: [
       {
         path: '/',
@@ -27,7 +27,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <ProtectedRoute/>,
-        errorElement: <Error/>,
         children: [
           { path: '/home', element: <Home /> },
           { path: '/detail:id', element: <Detail/> }

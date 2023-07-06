@@ -17,6 +17,11 @@ const collectionSlice = createSlice({
       const characters = [...state.characters, action.payload]
       state.characters = characters
     },
+    deleteCharacter: (state, action) => {
+      const id = action.payload
+      const characters = state.characters.filter(character => character.id !== id)
+      state.characters = characters
+    },
     setSearch: (state, action) => {
       const search = action.payload
       state.search = search
@@ -24,5 +29,5 @@ const collectionSlice = createSlice({
   }
 })
 
-export const { addCharacter, setSearch } = collectionSlice.actions
+export const { addCharacter, deleteCharacter, setSearch } = collectionSlice.actions
 export default collectionSlice.reducer

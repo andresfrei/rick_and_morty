@@ -1,15 +1,13 @@
 import { searchCharacter } from '../services/characters'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSearch, addCharacter } from '../reducers/collectionSlice'
-import { useState } from 'react'
+import { setSearch, addCharacter, deleteCharacter } from '../reducers/collectionSlice'
 import { validateCharacterId } from '../validate/characterValidator'
-import useLanguage from './useLanguage'
+import useError from './useError'
 
 export default function useCharacters () {
   const dispatch = useDispatch()
   const { characters, search } = useSelector(state => state.collection)
-  const [error, setError] = useState('')
-  const { dictionaryWord } = useLanguage()
+  const { addError } = useError()
 
   const hasCharacters = !!characters
 
@@ -28,34 +26,32 @@ export default function useCharacters () {
     )
 
   const idExists = (id) => {
-    const find = characters.find(character => character.id === id)
+    const find = characters.find(character => character.id === Number(id))
     return !!find
   }
 
   const handleAdd = (id) => {
-    if (!id) return
+    if (!id) return false
     const validate = validateCharacterId(id)
     if (!validate.isValidate) {
-      setError(validate.error)
-      return
+      addError(validate.error)
+      return false
     }
     if (idExists(id)) {
-      setError('dataExist')
-      return
+      addError('dataExist')
+      return false
     }
     searchCharacter(id)
-      .then(newCharacter => dispatch(addCharacter(newCharacter)))
-      .catch(err => {
-        setError('feching')
-        setError(err)
+      .then(newCharacter => {
+        dispatch(addCharacter(newCharacter))
+        return true
       })
+      .catch(err => addError(err))
   }
+
+  const handleDelete = (id) => dispatch(deleteCharacter(id))
 
   const showCharacters = handleFilter()
 
-  const hasError = error ? dictionaryWord(`error.${error}`) : ''
-
-  const cleanError = () => setError(null)
-
-  return { hasCharacters, showCharacters, handleSearch, handleAdd, hasError, idExists, error, cleanError }
+  return { hasCharacters, showCharacters, handleSearch, handleAdd, handleDelete, idExists }
 }

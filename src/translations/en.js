@@ -9,7 +9,7 @@ const dictionary = {
   },
   cards: {
     title: 'My collection',
-    add: 'Add',
+    add: 'Add character',
     filter: 'Filter',
     search: 'Search in coleccion'
   },
@@ -37,6 +37,8 @@ const dictionary = {
     close: 'Close'
   },
   errors: {
+    close: 'Close',
+    back: 'Back',
     dataExist: 'The entered data already exists',
     outRange: 'Number out renge',
     noNumber: 'The data must be a number',

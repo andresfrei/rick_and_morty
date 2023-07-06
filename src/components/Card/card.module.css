@@ -3,6 +3,7 @@
   width: 200px;
   height: 250px;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .face {

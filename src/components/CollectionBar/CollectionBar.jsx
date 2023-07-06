@@ -14,7 +14,7 @@ export default function CollectionBar () {
   const { hasCharacters } = useCharacters()
   const { handleToggle } = useToggle()
   return (
-    <div className={styles.header}>
+    <section className={styles.header}>
         <h2 className={styles.title}>{dictionaryWord('cards.title')}</h2>
         <div className={styles.toolsBar} >
           <div className={styles.toogleContainer}>
@@ -24,6 +24,6 @@ export default function CollectionBar () {
           </div>
           { hasCharacters && <CollectionSearch/> }
        </div>
-    </div>
+    </section>
   )
 }

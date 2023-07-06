@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 
-import { colorGrey } from '../../config/colors'
-const colorPrimary = '#fff'
+import { colors } from '../../config/theme'
 
 export const OutlineButton = styled.button`
   width:${props => props.width || '100%'};
+  height:${props => props.height || '100%'};
   padding: 0.5rem 1rem;
-  border: 2px solid ${props => props.color || colorPrimary};
-  color: ${props => props.color || colorPrimary};
+  border: 2px solid ${props => props.color || colors.primary};
+  color: ${props => props.color || colors.primary};
   background: none;
   cursor: pointer;
   transition: border-color 0.4s ease;
   border-radius: 10px;
 
   &:hover {
-    border-color: ${props => props.background || colorPrimary};
-    color: ${props => props.background || colorGrey};
-    background :${props => props.color || colorPrimary};
+    border-color: ${props => props.background || colors.primary};
+    color: ${props => props.background || colors.grey};
+    background :${props => props.color || colors.primary};
   }
 `
 export const NavigationButton = styled.div`

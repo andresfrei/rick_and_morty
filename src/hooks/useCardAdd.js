@@ -3,7 +3,7 @@ import { randomGenerete } from '../tools/helpers'
 import useToggle from './useToggle'
 
 export default function useCardAdd () {
-  const { handleAdd, idExists, error, cleanError } = useCharacters()
+  const { handleAdd, idExists } = useCharacters()
   const { handleToggle } = useToggle()
 
   const handleRandom = () => {
@@ -16,5 +16,5 @@ export default function useCardAdd () {
     handleAdd(random)
   }
 
-  return { handleRandom, handleAdd, handleToggle, error, cleanError }
+  return { handleRandom, handleAdd, handleToggle }
 }

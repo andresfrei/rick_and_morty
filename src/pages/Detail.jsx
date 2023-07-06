@@ -1,7 +1,7 @@
-const Detail = () => {
+import Detail from '../components/Detail/Detail'
+
+export default function DetailPage () {
   return (
-    <div>Detail</div>
+    <Detail/>
   )
 }
-
-export default Detail

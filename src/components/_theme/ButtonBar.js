@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import { styled } from 'styled-components'
+// import useError from '../../hooks/useError'
 
 export const ContainerBar = styled.div`
   width:${props => props.width || '100%'};
@@ -25,16 +26,25 @@ export const InputBar = styled.input`
 `
 
 export const SearchBar = (props) => {
-  const { type, placeholder, onInput, value, ref } = props
+  const { type, placeholder, onInput, focus, preventDefault = false } = props
+  // const { cleanError } = useError()
   const [input, setInput] = useState()
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter' || event.key === 'Tab') {
-      onInput(input)
-      setInput('')
+    switch (event.key) {
+      case 'Enter' || 'Tab':
+        handleClick()
+        // setInput('')
+   /*      break
+      case 'Backspace' || 'Delete':
+        cleanError()
+        break */
     }
   }
-
+  const handleClick = () => {
+    onInput(input)
+    !preventDefault && setInput('')
+  }
   const handleChange = (event) => setInput(event.target.value)
 
   return (
@@ -44,10 +54,13 @@ export const SearchBar = (props) => {
         placeholder={placeholder}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        value={value}
-        ref = {ref || null}
+        value={input}
+        ref = {focus || null}
       />
-      <IoIosSearch/>
+      <IoIosSearch
+        onClick={handleClick}
+        className='cursor-pointer'
+      />
     </ContainerBar>
   )
 }

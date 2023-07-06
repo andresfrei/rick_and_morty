@@ -6,11 +6,13 @@ import ErrorBox from '../components/ErrorBox.js/ErrorBox'
 export default function Layout () {
   const { hasError } = useError()
   return (
-    <main className='page-container'>
+    <body className='layout-container'>
       <Navbar/>
-      <Outlet/>
-      {hasError && <ErrorBox/>}
-    </main>
+      <main className='flex'>
+        <Outlet/>
+        {hasError && <ErrorBox/>}
+      </main>
+    </body>
 
   )
 }

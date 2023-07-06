@@ -2,10 +2,10 @@ import Collection from '../components/Collection/Collection'
 import CollectionBar from '../components/CollectionBar/CollectionBar'
 const Home = () => {
   return (
-    <div className='flex-column'>
+    <section className='flex-column'>
       <CollectionBar/>
       <Collection/>
-    </div>
+    </section>
   )
 }
 

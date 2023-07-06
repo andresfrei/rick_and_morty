@@ -15,7 +15,6 @@ export const searchCharacter = async (id) => {
       location: data.location,
       image: data.image
     }
-    console.log(mappedCharacter)
     return mappedCharacter
   } catch (error) {
     throw new Error('getCharacter error')
