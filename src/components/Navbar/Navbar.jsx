@@ -4,28 +4,37 @@ import LenguageSelector from '../LanguageSelector/LenguageSelector'
 import { NavigationButton } from '../_theme/Buttons'
 import { BsGithub } from 'react-icons/bs'
 import useSession from '../../hooks/useSession'
-import SessionMenu from './SessionMenu/SessionMenu'
+import SessionMenu from '../SessionMenu/SessionMenu'
+import { useNavigate } from 'react-router-dom'
+import useLanguage from '../../hooks/useLanguage'
 
 const GITHUB_REPO_URL = 'https://github.com/andresfrei/rick_and_morty'
 
-const Navbar = () => {
+export default function Navbar () {
   const { hasLogged } = useSession()
-  // const { fullName } = session
+  const navigate = useNavigate()
   const handleGitHub = () => window.open(GITHUB_REPO_URL, '_blank')
+  const { dictionaryWord } = useLanguage()
+  const urlNavigation = hasLogged ? '/home' : '/'
+  const textNavigation = hasLogged ? 'nav.home' : 'nav.landing'
   return (
     <nav className={styles.container}>
         <div>
           <Logo/>
         </div>
-        <div className={styles.toolBar}>
-          <LenguageSelector />
+        <div className={styles.group} >
+          <NavigationButton width='120px' onClick={() => navigate(urlNavigation)}>
+              {dictionaryWord(textNavigation)}
+            </NavigationButton>
+          <NavigationButton width='120px' onClick={() => navigate('/about')}>
+            {dictionaryWord('nav.about')}
+          </NavigationButton>
           <NavigationButton width='50px' onClick={handleGitHub}>
             <BsGithub/>
           </NavigationButton>
+          <LenguageSelector />
           {hasLogged && <SessionMenu /> }
         </div>
     </nav>
   )
 }
-
-export default Navbar

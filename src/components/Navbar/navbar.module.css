@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.toolBar {
+.group {
   display: flex;
   align-items: center;
   gap: 1rem;

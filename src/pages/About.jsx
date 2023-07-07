@@ -1,7 +1,9 @@
-const About = () => {
+import About from '../components/About/About'
+
+export default function AboutPage () {
   return (
-    <h1>About</h1>
+    <sedivction className='flex-grow'>
+      <About/>
+    </sedivction>
   )
 }
-
-export default About

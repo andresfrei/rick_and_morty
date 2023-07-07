@@ -8,10 +8,10 @@ export default function Layout () {
   return (
     <body className='layout-container'>
       <Navbar/>
-      <main className='flex'>
+      <main className='flex-grow'>
         <Outlet/>
-        {hasError && <ErrorBox/>}
       </main>
+      {hasError && <ErrorBox/>}
     </body>
 
   )

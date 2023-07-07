@@ -43,27 +43,17 @@ body {
   height: 100vh
 }
 
-.flex-center {
+.flex-grow{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  gap: 10px;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
-  gap: 10px;
+.flex-start{
+  justify-content: start;
 }
-
-.page-margin-top{
-  margin-top: 1.5rem;
-}
-
 
 .modal-container {
   position: fixed;
@@ -132,3 +122,23 @@ body {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
+.margin-center{
+  margin: 0 auto;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.w-600{
+  width: 600px;
+}
+
+gap-1{
+  gap:1rem;
+}
+gap-2 {
+  gap: 2rem;
+}
+

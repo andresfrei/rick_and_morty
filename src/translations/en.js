@@ -1,11 +1,17 @@
 const dictionary = {
-  welcome: {
-    title: 'Welcome to Rick and Morty',
-    subTitle: 'Integrating project Henry',
-    autor: 'By Andrés Frei - PT14A'
+  about: {
+    welcome: 'Welcome',
+    to: 'to',
+    title: 'Rick and Morty',
+    subtitle: 'Integrating project by Henry',
+    autor: 'By Andrés Frei - PT14A',
+    go: 'Go'
   },
   nav: {
-    selectedLanguage: 'Selected language'
+    selectedLanguage: 'Selected language',
+    landing: 'Welcome',
+    home: 'Home',
+    about: 'About'
   },
   cards: {
     title: 'My collection',

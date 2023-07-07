@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import { styled } from 'styled-components'
+import { colors } from '../../config/theme'
 // import useError from '../../hooks/useError'
 
 export const ContainerBar = styled.div`
@@ -21,7 +22,7 @@ export const InputBar = styled.input`
   padding:${props => props.padding || '24px, 2px'} ;
   padding-left: ${props => props.paddingLeft || '15px'} ;
   padding-right: ${props => props.paddingRigth || 'none'} ;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${colors.lightFont};
   width: 80%;
 `
 
