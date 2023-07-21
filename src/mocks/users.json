@@ -1,9 +1,9 @@
 [
   {
     "id":1,
-    "email":"user@gmail.com",
+    "email":"account1@gmail.com",
     "fullName":"Cosme fulatino",
-    "password":"12345"
+    "password":"112233"
   },
   {
     "id":2,

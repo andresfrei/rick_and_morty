@@ -4,6 +4,7 @@ import { useState } from 'react'
 import useSession from '../../hooks/useSession'
 import useLanguage from '../../hooks/useLanguage'
 import useToggle from '../../hooks/useToggle'
+import { validateLogin } from '../../services/users'
 
 import ErrorModal from '../ErrorModal/ErrorModal'
 
@@ -18,11 +19,6 @@ export default function FormLogin () {
   const { login } = useSession()
   const { dictionaryWord } = useLanguage()
 
-  //  const inputRef = useRef(null)
-  /* useEffect(() => {
-    inputRef.current.focus()
-  }, []) */
-
   const handleChange = (event) => {
     const property = event.target.name
     const value = event.target.value
@@ -30,13 +26,17 @@ export default function FormLogin () {
   }
 
   const handleLogin = () => {
-    const res = login(passport)
-    !res
-      ? handleToggle(4)
-      : navigate('/home')
+    const res = validateLogin(passport)
+    if (res) {
+      login(passport)
+      navigate('/home')
+    } else {
+      handleToggle(4)
+    }
   }
+
   const handleRegister = () => {
-    window.alert('No soy tan veloz... Prueba usr: user@gmail.com, pwd: 12345')
+    window.alert('No soy tan veloz... Prueba usr: account1@gmail.com, pwd: 112233')
     // inputRef.current.focus()
   }
   const closeModal = () => {
@@ -47,7 +47,7 @@ export default function FormLogin () {
 
   return (
     <>
-      {isToggle() && <ErrorModal handleClick={closeModal}/>}
+      {isToggle(4) && <ErrorModal handleClick={closeModal}/>}
       <div className={styles.container}>
         <Form className={styles.body}>
           <FormHeader>
