@@ -1,9 +1,11 @@
 const dictionary = {
   about: {
+    about: 'About:',
     welcome: 'Welcome',
     to: 'to',
     title: 'Rick and Morty',
-    subtitle: 'Integrating project by Henry',
+    subtitle: 'Integrating project by',
+    tecnology: 'Technologies that I am using:',
     autor: 'By Andrés Frei - PT14A',
     go: 'Go'
   },
