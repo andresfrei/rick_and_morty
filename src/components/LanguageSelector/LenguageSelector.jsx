@@ -6,7 +6,7 @@ import useToggle from '../../hooks/useToggle'
 
 const LanguageSelector = () => {
   const { isToggle, handleToggle } = useToggle()
-  const { selected } = useLanguage()
+  const { selected, setLanguage } = useLanguage()
   const handleClick = () => handleToggle(1)
   return (
     <div className={styles.container}>
@@ -18,10 +18,10 @@ const LanguageSelector = () => {
           { isToggle(1) &&
             <div className={styles.options}>
               <div className={styles.optionContainer}>
-                <OptionFlag language={'es'} />
+                <OptionFlag language={'es'} onClick = {setLanguage} />
               </div>
               <div className={styles.optionContainer}>
-                <OptionFlag language={'en'} />
+                <OptionFlag language={'en'} onClick = {setLanguage}/>
               </div>
             </div>
           }

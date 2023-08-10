@@ -11,16 +11,18 @@ const sessionSlice = createSlice({
   initialState,
   reducers: {
     setSession: (state, action) => {
-      const { email } = action.payload
-      state.email = email
-      state.name = 'Cosme Fulanito'
-      state.token = '121234sddff'
+      const session = {
+        email: action.payload,
+        name: 'Cosme Fulanito',
+        token: 'adsw53434534fsñdflsfksdf'
+      }
+      return session
     },
     unsetSession: (state) => {
-      state = initialState
+      return initialState
     },
     notAuthorized: (state) => {
-      state = initialState
+      return initialState
     }
   }
 })

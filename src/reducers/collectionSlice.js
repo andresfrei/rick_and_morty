@@ -1,33 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { categories } from '../config/inicialState'
 
 const initialState = {
   characters: [],
-  categories,
-  filter: [],
-  search: '',
-  favorites: []
+  search: ''
 }
 
 const collectionSlice = createSlice({
   name: 'collection',
   initialState,
   reducers: {
+    setCharacters: (state, action) => {
+      const characters = action.payload
+      return { ...state, characters }
+    },
     addCharacter: (state, action) => {
       const characters = [...state.characters, action.payload]
-      state.characters = characters
+      return { ...state, characters }
+    },
+    updateCharacter: (state, action) => {
+      const character = action.payload
+      const characters = [...state.characters, character]
+      return { ...state, characters }
     },
     deleteCharacter: (state, action) => {
-      const id = action.payload
-      const characters = state.characters.filter(character => character.id !== id)
-      state.characters = characters
+      const characters = state.characters.filter(character => character.id !== action.payload)
+      return { ...state, characters }
     },
     setSearch: (state, action) => {
       const search = action.payload
-      state.search = search
+      return { ...state, search }
     }
   }
 })
 
-export const { addCharacter, deleteCharacter, setSearch } = collectionSlice.actions
+export const { addCharacter, updateCharacter, deleteCharacter, setSearch, setCharacters } = collectionSlice.actions
 export default collectionSlice.reducer

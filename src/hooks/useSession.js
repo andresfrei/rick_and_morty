@@ -1,23 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setSession, unsetSession } from '../reducers/sessionSlice'
-import { setData } from '../tools/localStorage'
-// import { useEffect } from 'react'
-
-const localKey = 'keyUsr'
+import { localStorageKeys } from '../config/const'
 
 export default function useSession () {
   const { email, fullName } = useSelector(state => state.session)
 
   const dispatch = useDispatch()
 
-  const login = (passport) => {
+  const login = (passport, save = true) => {
     dispatch(setSession(passport))
-    setData(localKey, passport)
+    save && saveSession(passport)
   }
 
   const logout = () => {
     dispatch(unsetSession())
-    setData(localKey, {})
+    saveSession('')
+  }
+
+  const saveSession = (passport) => {
+    const stringPassport = JSON.stringify(passport)
+    window.localStorage.setItem(localStorageKeys.appSession, stringPassport)
   }
 
   const hasLogged = !!email

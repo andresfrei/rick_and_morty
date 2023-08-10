@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import useCardAdd from '../../hooks/useCardAdd'
+import useCharacter from '../../hooks/useCharacter'
 
 import { OutlineButton } from '../_theme/Buttons'
 import { SearchBar } from '../_theme/ButtonBar'
@@ -7,7 +7,7 @@ import ModalBox from '../_theme/ModalBox'
 import useLanguage from '../../hooks/useLanguage'
 
 export default function CardAdd () {
-  const { handleAdd, handleRandom, handleToggle } = useCardAdd()
+  const { newCharacter, handleRandom, handleToggle } = useCharacter()
   const { dictionaryWord } = useLanguage()
   const defaultFocus = useRef(null)
 
@@ -23,7 +23,7 @@ export default function CardAdd () {
     >
       <SearchBar
       placeholder ='ID'
-      onInput = {handleAdd}
+      onInput = {newCharacter}
       focus = {defaultFocus}
       />
      <OutlineButton height='40px' onClick={handleRandom}>

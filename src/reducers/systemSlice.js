@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   loader: false,
   toggleId: 0,
-  error: ''
+  errors: []
 }
 
 const systemSlice = createSlice({
@@ -11,16 +11,19 @@ const systemSlice = createSlice({
   initialState,
   reducers: {
     setLoader: (state, action) => {
-      state.loader = action.payload
+      const loader = action.payload
+      return { ...state, loader }
     },
     setToggle: (state, action) => {
-      state.toggleId = action.payload
+      const toggleId = action.payload
+      return { ...state, toggleId }
     },
-    setError: (state, action) => {
-      state.error = action.payload
+    setErrors: (state, action) => {
+      const errors = action.payload
+      return { ...state, errors }
     }
   }
 })
 
-export const { setLoader, setToggle, setError } = systemSlice.actions
+export const { setLoader, setToggle, setErrors } = systemSlice.actions
 export default systemSlice.reducer

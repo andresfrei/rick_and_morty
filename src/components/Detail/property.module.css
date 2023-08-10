@@ -1,0 +1,17 @@
+.propLine {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.propLabel {
+  font-weight: normal;
+  color: burlywood;
+  text-align: left;
+  flex-basis: 35%;
+}
+
+.propValue {
+  text-align: left;
+  flex-basis: 65%;
+}

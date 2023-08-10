@@ -27,7 +27,9 @@ const dictionary = {
     species: 'Species:',
     gender: 'Gender:',
     origin: 'Origin:',
-    seeMore: 'See more'
+    seeMore: 'See more',
+    detail: 'Character detail',
+    location: 'Location'
   },
   login: {
     title: 'Login',
@@ -44,13 +46,16 @@ const dictionary = {
     options: 'Config',
     close: 'Close'
   },
+  buttons: {
+    back: 'Back'
+  },
   errors: {
     close: 'Close',
     back: 'Back',
     dataExist: 'The entered data already exists',
     outRange: 'Number out renge',
     noNumber: 'The data must be a number',
-    feching: 'Error when looking for the api'
+    errApi: 'Error when looking for the api'
   }
 }
 

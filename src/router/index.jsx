@@ -3,9 +3,10 @@ import LayoutPage from '../layouts/LayoutPage'
 
 import Home from '../pages/Home'
 import About from '../pages/About'
-import Detail from '../pages/Detail'
+import Detail, { loaderCharacter } from '../pages/Detail'
 import Landing from '../pages/Landing'
 import Login from '../pages/Login'
+
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 
 import Error from '../components/Error/Error'
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
         element: <ProtectedRoute/>,
         children: [
           { path: '/home', element: <Home /> },
-          { path: '/detail:id', element: <Detail/> }
+          {
+            path: '/detail/:id',
+            element: <Detail/>,
+            loader: loaderCharacter
+          }
         ]
       }
     ]

@@ -27,7 +27,9 @@ const dictionary = {
     species: 'Especie:',
     gender: 'Genero:',
     origin: 'Origen:',
-    seeMore: 'Ver más'
+    seeMore: 'Ver más',
+    detail: 'Detalle del personaje',
+    location: 'Ubicacion'
   },
   login: {
     title: 'Inicio de sesión',
@@ -44,13 +46,17 @@ const dictionary = {
     options: 'Configurar',
     close: 'Cerrar'
   },
+  buttons: {
+    back: 'Volver'
+  },
   errors: {
     close: 'Cerrar',
     back: 'Volver',
     dataExist: 'El dato ingresado ya existe',
     outRange: 'Fuera de rango',
-    noNumber: 'El dato debe ser un número',
-    feching: 'Error al buscar en la API'
+    notNumber: 'El dato debe ser un número',
+    errApi: 'Error al buscar en la API',
+    notRange: 'Valor fuera del rango'
   }
 }
 

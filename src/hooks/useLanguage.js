@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
 import es from '../translations/es'
 import en from '../translations/en'
 
+import { setLanguage as setLanguageSlice } from '../reducers/languageSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSelected, setDictionary } from '../reducers/languageSlice'
+import { localStorageKeys } from '../config/const'
 
 export default function useLanguage () {
   const { selected, dictionary } = useSelector(state => state.language)
@@ -15,18 +15,12 @@ export default function useLanguage () {
     return dictionary[keys[0]][keys[1]] || '<undefined>'
   }
 
-  useEffect(() => {
-    switch (selected) {
-      case 'es':
-        dispatch(setDictionary(es))
-        break
-      case 'en':
-        dispatch(setDictionary(en))
-        break
-    }
-  }, [selected])
-
-  const setLanguage = (value) => dispatch(setSelected(value))
+  const setLanguage = (value) => {
+    const selected = value
+    const dictionary = selected === 'es' ? es : en
+    dispatch(setLanguageSlice({ selected, dictionary }))
+    window.localStorage.setItem(localStorageKeys.appLanguage, value)
+  }
 
   return { selected, setLanguage, dictionaryWord }
 }

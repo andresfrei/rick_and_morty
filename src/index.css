@@ -145,3 +145,14 @@ gap-2 {
 .w-100{
   width: 100%;
 }
+
+.my-1{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mz-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+

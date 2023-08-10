@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  gap:2rem;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 15px;
+  padding: 1rem 2rem;
+}
+
+.container img {
+  width: 300px;
+  border-radius: 50%;
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap:1rem;
+  min-width: 350px;
+  margin: 0 auto;
+}
+
+.properties{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+.footer{
+  margin: 0 auto;
+}
+
+.title{
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.name{
+  text-align: center;
+}
